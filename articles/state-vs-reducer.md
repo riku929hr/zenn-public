@@ -30,6 +30,8 @@ Reactの学習を始めると、大体 `useState` `useEffect` `useCallback` と�
 
 以下のような配送フォームを考えます。
 
+![](/images/state-vs-reducer/form.png)
+
 - 以下を入力項目とする
   - 郵便番号
   - 都道府県（プルダウンで選択）
@@ -40,6 +42,10 @@ Reactの学習を始めると、大体 `useState` `useEffect` `useCallback` と�
 - 「送信」ボタンを押すと、入力項目が送信される（今回はコンソールに吐き出す）
 - 「内容を確認しました」チェックボックスを設け、チェックが押されている場合のみ送信ボタンを押せる
 - 「リセット」ボタンで入力項目とチェックボックスを初期値に戻す
+
+デモ画面を用意したので、よかったらみてください。
+
+https://riku929hr.github.io/state-vs-reducer/
 
 ## stateで実装する場合の課題
 
