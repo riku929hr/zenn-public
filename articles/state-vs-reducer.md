@@ -22,9 +22,11 @@ Reactの学習を始めると、大体 `useState` `useEffect` `useCallback` と�
 ### 注意点
 
 この記事では、フォームを題材にしてuseReducerを使った実装を行っています。
-ですが、フォームの実装でuseReducerを推奨する意図をもって執筆したものではありません🙏
+ですが、フォームの実装でuseReducerを推奨する意図をもって執筆したものではありません[^1]🙏
 
 あくまでユースケースの一つとしてご理解いただけると嬉しいです。
+
+[^1]: 複雑なフォームを実装する場合、[Formik](https://formik.org/) や [React Hook Form](https://www.react-hook-form.com/) などのフォームヘルパーを利用するのが最適だと思います
 
 ## 題材
 
@@ -428,7 +430,8 @@ https://github.com/riku929hr/state-vs-reducer/blob/main/src/components/ReduxTool
 - actionとreducerは、イベントベースでモデリングすることでstateと疎結合なロジックにできる
 - Redux Tool Kitを使えば、コード量が多い問題を回避できる
 
-今回はフォームを例にとって、useReducer の使い所を考えました。
+今回はわかりやすくフォームを例にとって、useReducer の使い所を考えました。
+もちろん、フォーム以外のユースケースはたくさんあると思います。
 そんなに頻繁に使うものではないと思っていますが、複数のプロパティを持つstateを管理したい場合、状況に応じて useReducer の利用を考えてもいいかもしれません。
 
 :::message alert
