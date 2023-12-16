@@ -1,0 +1,17 @@
+name: secretlint
+on: [push, pull_request]
+
+jobs:
+  secretlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: yarn install
+        run: yarn install
+      - name: run secretlint
+        run: yarn secretlint
