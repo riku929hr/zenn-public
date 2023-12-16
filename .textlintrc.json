@@ -1,5 +1,12 @@
 {
   "plugins": {},
   "filters": {},
-  "rules": {}
+  "rules": {
+    "preset-jtf-style": true,
+    "preset-ja-technical-writing": {
+      "ja-no-weak-phrase": false, // 〜かもは使えたほうがいい
+      "no-exclamation-question-mark": false, // ！と？はOKにしておく
+      "ja-no-mixed-period": false
+    }
+  }
 }

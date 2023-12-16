@@ -7,7 +7,7 @@ published: true
 publication_name: "openlogi"
 ---
 
-この記事は、OPENLOGI Advent Calendar 2023 の10日目の記事です。
+この記事は、OPENLOGI Advent Calendar 2023の10日目の記事です。
 先日、この記事の内容でLTしました。スライドを公開しているので、さっと読みたい方はどうぞ。
 
 @[speakerdeck](dd44f665b5da44c7a2f56992776ff315)
@@ -16,15 +16,16 @@ publication_name: "openlogi"
 
 ### useReducer って何者？
 
-Reactの学習を始めると、大体 `useState` `useEffect` `useCallback` といった主要なフックの解説は多く見られるものの、`useReducer` についてはサラッと書かれていることが多く「いつどうやって使うのか？」と疑問に思って来ました。
+Reactの学習を始めると、大体 `useState` `useEffect` `useCallback` といった主要なフックの解説は多く見られます。
+しかし、あまり使わない`useReducer` についてはサラッと書かれていることが多く「いつどうやって使うのか？」と疑問に思って来ました。
 そこでこの記事では、 `useReducer` の使い所について、`useState` の実装と見比べながら考えていこうと思います。
 
 ### 注意点
 
-この記事では、フォームを題材にしてuseReducerを使った実装を行っています。
+この記事では、フォームを題材にしてuseReducerを使って実装しています。
 ですが、フォームの実装でuseReducerを推奨する意図をもって執筆したものではありません[^1]🙏
 
-あくまでユースケースの一つとしてご理解いただけると嬉しいです。
+あくまでユースケースの1つとしてご理解いただけると嬉しいです。
 
 [^1]: 複雑なフォームを実装する場合、[Formik](https://formik.org/) や [React Hook Form](https://www.react-hook-form.com/) などのフォームヘルパーを利用するのが最適だと思います
 
@@ -51,7 +52,7 @@ https://riku929hr.github.io/state-vs-reducer/
 
 ## stateで実装する場合の課題
 
-フォームヘルパーなどのライブラリを使わずvanilla react で実装する場合、以下のように項目値ごとに state を設ける方法が考えられます。
+フォームヘルパーなどのライブラリを使わずvanilla reactで実装する場合、以下のように項目値ごとにstateを設ける方法が考えられます。
 
 ```ts
 const UseStateForm: FC = () => {
@@ -101,14 +102,14 @@ const UseStateForm: FC = () => {
 
 これはたとえば、次のような問題が起こります。
 
-- formの項目を追加/削除するたびに handleSubmit, handleReset の変更が必要だが、変更漏れでも linter や compiler でエラーにならず、気づきにくい
-- `isConfirmed` （チェックボックスの値）はフォームの値ではないが、区別がしづらい
+- formの項目を追加/削除するたびにhandleSubmit, handleResetの変更が必要だが、変更漏れでもlinterやcompilerでエラーにならず、気づきにくい
+- `isConfirmed`（チェックボックスの値）はフォームの値ではないが、区別がしづらい
 
-フォームの入力値を一つの変数で扱うことができれば、この問題は回避できます。
+フォームの入力値を1つの変数で扱うことができれば、この問題は回避できます。
 
 ## useReducerを使う
 
-上記のデメリットを改善できる解決策の一つが、useReducerです。
+上記のデメリットを改善できる解決策の1つが、useReducerです。
 
 ### そもそも reducer とは？
 
@@ -135,7 +136,7 @@ reduxが由来であるということを述べましたが、そもそもredux�
 
 端的に言うと、ツリー構造を持つグローバル変数（state）で単方向データフローを保って状態管理する仕組みです。
 
-つまり、useReducer は
+つまり、useReducerは
 
 ```json
 {
@@ -158,13 +159,13 @@ reduxが由来であるということを述べましたが、そもそもredux�
 
 1. stateを定義し直す
 2. actionを抽出する
-   - stateに対してどのような変更を行うか、そのユースケース
+   - stateをどのように変更するか、そのユースケース
 3. reducerを作成する
 4. stateのsetをactionのdispatchに置き換える
 
 ### 1. stateの定義
 
-フォームの state として以下のように定義します。
+フォームのstateとして以下のように定義します。
 
 ```ts
 type DeliveryForm = {
@@ -187,7 +188,7 @@ const initialState: DeliveryForm = {
 };
 ```
 
-これでフォームの値を取り回すための state が一塊になり、`DeliveryForm` という型がつけられます。
+これでフォームの値を取り回すためのstateが一塊になり、`DeliveryForm` という型がつけられます。
 
 ### 2. actionの抽出
 
@@ -224,7 +225,7 @@ type Action = {
 
 #### actionはsetterではなく、イベントでモデリングする！
 
-これは[Redux 公式スタイルガイド](https://redux.js.org/style-guide/) に書かれているルールの一つでもあります。
+これは[Redux 公式スタイルガイド](https://redux.js.org/style-guide/) に書かれているルールの1つでもあります。
 
 actionの定義として、以下のように項目値ごとのsetterとして定義したくなるかもしれません。
 
@@ -236,9 +237,9 @@ const ActionType = {
 ```
 
 これでも動くコードはできるのですが、actionがstateの内容を知っていることが前提となるため、stateの項目値の増減とともに、actionを変更する必要があります。
-これでは、state の内容によらず動くロジックを実現することはできません。
+これでは、stateの内容によらず動くロジックを実現できません。
 
-一方、以下のようにイベントベースで定義すると、action が state の中身を知る必要がないため、stateの項目値を増減させても、action に手を入れることなく実装することができます。
+一方、以下のようにイベントベースで定義すると、actionがstateの中身を知る必要がないため、stateの項目値を増減させても、actionに手を入れることなく実装できます。
 
 ```ts:actionをイベントで定義する
 const ActionType = {
@@ -251,7 +252,7 @@ const ActionType = {
 
 ### 3. reducerの作成
 
-reducer はstateを更新するための関数でした。以下のように定義します。
+reducerはstateを更新するための関数でした。以下のように定義します。
 
 ```ts:reducer
 const reducer = (state: DeliveryForm, action: Action): DeliveryForm => {
@@ -272,8 +273,8 @@ const reducer = (state: DeliveryForm, action: Action): DeliveryForm => {
 };
 ```
 
-そして、redux の実装ではよく使われていたのですが、action creator という、 action を作成するためだけの関数を定義しておきます。
-action の生成は、この関数を呼び出すことで行います。
+そして、reduxの実装ではよく使われていたのですが、action creatorという、 actionを作成するためだけの関数を定義しておきます。
+actionの生成は、この関数を呼び出すことで行います。
 
 ```ts:action creator
 const reset = (): Action => ({
@@ -289,7 +290,7 @@ const updated = (payload: Partial<DeliveryForm>): Action => ({
 :::message
 現在のreact docsを見ると、特にaction creatorに関する言及はありません。
 個人的な推測ですが、特にjavascriptの環境において、不正なactionが発行されるのを防ぐ手段として使われていたのではないかなと思います。
-typescript で型をつけてあげれば不正なaction が作成されることはなさそうですが、ここではredux実装の慣例に倣っています。
+typescriptで型をつけてあげれば不正なactionが作成されることはなさそうですが、ここではredux実装の慣例に倣っています。
 :::
 
 ### 4. setStateをdispatchに変更する
@@ -339,23 +340,23 @@ https://github.com/riku929hr/state-vs-reducer/blob/main/src/components/UseReduce
 ## Redux Toolkit でコード量削減
 
 お気づきかと思いますが、actionやreducerの作成のため、なかなかのコード量を書く必要があります。
-が、Redux Toolkit を使うとコード量を減らすことができます。
+が、Redux Toolkitを使うとコード量を減らすことができます。
 
 ### Redux Toolkit(RTK) とは？
 
 Reduxのコード量を削減できるRedux公式ライブラリです。
 
-Redux 専用ではありますが、useReducer とロジックとしては同じなので、ここで利用することもできます！
+Redux専用ではありますが、useReducerとロジックとしては同じなので、ここで使うこともできます！
 
 ### RTKによるリファクタリング
 
-RTK には、sliceという概念があります。これは、
+RTKには、sliceという概念があります。これは、
 
 - action
 - reducer
 - action creator
 
-の3つをまとめたもので、`createSlice` という関数を用いて以下のように生成することができます。
+の3つをまとめたもので、`createSlice` という関数を用いて以下のように生成できます。
 
 ```ts
 export const deliveryFormSlice = createSlice({
@@ -418,7 +419,7 @@ const ReduxToolKitForm: FC = () => {
 // ...以下省略
 ```
 
-それぞれ個別に定義していた action creator や reducer を、`deliveryFormSlice` で作成したものに置き換えているだけです。
+それぞれ個別に定義していたaction creatorやreducerを、`deliveryFormSlice` で作成したものに置き換えているだけです。
 
 最終的なコードはこちら↓
 https://github.com/riku929hr/state-vs-reducer/blob/main/src/components/ReduxToolKitForm.tsx
@@ -427,22 +428,22 @@ https://github.com/riku929hr/state-vs-reducer/blob/main/src/components/ReduxTool
 
 - useStateをたくさん使いすぎると管理が大変になる
 - useReducerは構造が複雑な（ツリー構造を持つ）stateの管理に優れている
-- actionとreducerは、イベントベースでモデリングすることでstateと疎結合なロジックにできる
+- actionとreducerは、イベントベースでモデリングすることで、stateと疎結合なロジックにできる
 - Redux Tool Kitを使えば、コード量が多い問題を回避できる
 
-今回はわかりやすくフォームを例にとって、useReducer の使い所を考えました。
+今回はわかりやすくフォームを例にとって、useReducerの使い所を考えました。
 もちろん、フォーム以外のユースケースはたくさんあると思います。
-そんなに頻繁に使うものではないと思っていますが、複数のプロパティを持つstateを管理したい場合、状況に応じて useReducer の利用を考えてもいいかもしれません。
+そんなに頻繁に使うものではないと思っていますが、複数のプロパティを持つstateを管理したい場合、状況に応じてuseReducerの利用を考えてもいいかもしれません。
 
 :::message alert
-フォームの入力値を一つのstateで取り回す場合、フォームになにか入力するたびに、フォーム全体がレンダリングされてしまうことになります。
+フォームの入力値を1つのstateで取り回す場合、フォームになにか入力するたびに、フォーム全体がレンダリングされてしまうことになります。
 特に項目値が多い場合、パフォーマンスに影響を及ぼしてしまう可能性があります。
 その状況に応じて適切な設計、選択をしていくことが重要だと思っています。
 :::
 
 ## 補足：useStateでもできるよね？
 
-実は useState でも似たようなことができちゃいます。
+実はuseStateでも似たようなことができちゃいます。
 
 ```ts
 [state, setState] = useState<T>(initialState);
@@ -480,8 +481,9 @@ return (
         />
 ```
 
-のように実装すれば useState でも state を一塊にして管理できちゃうんですね…
-ただ個人的には、useReducer のメリットの一つとして、コンポーネントからstate管理のロジックを切り離すことができることが大きいと考えており、同じことをやるなら useReducer 使うのがいいのでは？と思っています。
+のように実装すればuseStateでもstateを一塊にして管理できちゃうんですね…
+
+ただ個人的には、useReducerのメリットの1つとして、コンポーネントからstate管理のロジックを切り離せることが大きいと考えており、同じことをやるならuseReducer使うのがいいのでは？と思っています。
 
 いずれにしても、その場に応じた設計をしていく必要があります。複雑なことをやる前に、もしかしたらstateの定義の仕方や、設計から見直してもいいかもしれません。
 
