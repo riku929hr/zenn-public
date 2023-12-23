@@ -3,7 +3,7 @@ title: "prettierが古すぎたので最新版にした"
 emoji: "📼"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["prettier", "ESlint"]
-published: false
+published: true
 publication_name: "openlogi"
 ---
 
