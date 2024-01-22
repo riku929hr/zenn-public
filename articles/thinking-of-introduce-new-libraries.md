@@ -3,7 +3,7 @@ title: "変化の激しいReactへのライブラリ導入で考えるべきこ�
 emoji: "🎉"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["react", "reacthookform", "yup"]
-published: false
+published: true
 publication_name: "openlogi"
 ---
 
@@ -151,7 +151,7 @@ yupと比較してみると、以下のような違いがあります。
 
 #### 理由1: yupのほうが扱いやすい
 
-あくまで**React Hook Formでバリデーションを行うという文脈に限って言えば**ですが、yupのほうがzodよりも扱いやすい印象でした。
+yupのほうがzodよりも扱いやすい印象でした。
 
 例えばoptionalな値をバリデーションするときに、yupとzodでは以下の書き方の違いがあります[^5]。
 [^5]: りあクト！「10-2-2. フォームヘルパーはどれを使うべきか」より改変
