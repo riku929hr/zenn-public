@@ -102,7 +102,6 @@ Redux全盛期に使われていたライブラリで、フォームの値をred
 - [React Hook Form](https://react-hook-form.com/)
   - この3つの中では最もダウンロード数が多い
   - ドキュメントが充実しており、解説記事や書籍も多い
-  - vercelが開発していて、継続的にメンテされそう
   - Uncontrolled Componentを使うことで、レンダリングコストを最小化している。反面、react-selectなどのControlled Componentとの併用がちょっと面倒
 - [Formik](https://formik.org/)
   - React Hook Formが登場する前に覇権を握っていたライブラリ
