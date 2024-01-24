@@ -183,7 +183,7 @@ zodは勢いのある新進気鋭なライブラリという印象ですが、�
 中でも、tRPC（クライアントとサーバ間で型情報を共有できる仕組み）という流行りのフレームワークではMUSTとなるそうで、[tRPCの公式](https://trpc.io/#try-it-out)でもzodを利用した例が記載されています。
 そういうわけもあってか、zodの公式ドキュメントは充実している一方で、かなり量があります。また、インターネットの情報量が多い分、必要な情報にたどり着くまでに時間がかかってしまいます。
 
-一方、yupはgithubリポジトリの[README一枚](https://github.com/jquense/yup?tab=readme-ov-file#yup)で完結しています。これはとても嬉しく、大体cmd+fでREADMEを検索すれば必要な情報が手に入ります。
+一方、yupはgithubリポジトリの[README](https://github.com/jquense/yup?tab=readme-ov-file#yup)を見れば実装に困ることはありませんでした。大体cmd+fでREADMEを検索すれば必要な情報が手に入ります。
 また、Reactでは有名な同人誌の[りあクト！](https://oukayuka.booth.pm/items/2367992)や、[WEB+DB PRESS](https://gihyo.jp/magazine/wdpress/archive/2023/vol135)（発刊休止悲しい）で解説されていたりと、書籍での学習も容易です。
 開発メンバーの負担を考えると、学習のしやすさは大事なポイントだと思っています。
 
