@@ -18,3 +18,5 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          pr_custom_prompt.prompt: |-
+            日本語で技術ブログを書こうとしています。書式はmarkdownです。レビューしてください。
