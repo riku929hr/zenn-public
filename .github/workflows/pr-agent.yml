@@ -1,7 +1,7 @@
+name: pr agent
 on:
   pull_request:
-    types: [opened, reopened, ready_for_review]
-  issue_comment:
+    types: [opened, reopened, synchronize]
 jobs:
   pr_agent_job:
     if: ${{ github.event.sender.type != 'Bot' }}
@@ -11,6 +11,21 @@ jobs:
       pull-requests: write
       contents: write
     name: Run pr agent on every pull request, respond to user comments
+    env:
+      INSTRUCTION: >-
+        - 日本語で回答してください。与えられるのはmarkdown形式の日本語の技術ブログです。
+        - 以下の観点で指摘を分類してください。
+          - typo
+            - 誤字脱字がないか
+          - grammer
+            - 日本語の文法に誤りがないか
+          - consistency
+            - 文章に一貫性があるか
+            - 一つの段落・節・章の中で、一貫した主張が行われているか
+          - structure
+            - 文章の構成が読みやすいものになっているか
+              - 序論、本論、結論のように、読者への読みやすさを意識した文章になっているか
+        - 上記の指摘観点をprefixにつけてください。例えば、typoの指摘はtypo:とprefixをつけること。
     steps:
       - name: PR Agent action step
         id: pragent
@@ -18,5 +33,16 @@ jobs:
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          pr_custom_prompt.prompt: |-
-            日本語で技術ブログを書こうとしています。書式はmarkdownです。レビューしてください。
+          # レビュー総評コメントである "PR Feedback" への追加プロンプト
+          PR_REVIEWER.EXTRA_INSTRUCTIONS: ${{ env.INSTRUCTION }}
+          # プルリクの要約 "PR Descrition" に関する追加プロンプト
+          PR_DESCRIPTION.EXTRA_INSTRUCTIONS: >-
+            日本語で回答してください。
+            ブログの記事が与えられます。
+            ブログの要旨を200字程度の日本語で記載してください。
+          # /improve で呼び出す修正コードの "Suggestion" 時の追加プロンプト
+          PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: ${{ env.INSTRUCTION }}
+          CONFIG.MODEL: gpt-4o-mini
+          GITHUB_ACTION.AUTO_REVIEW: true
+          GITHUB_ACTION.AUTO_DESCRIBE: true
+          GITHUB_ACTION.AUTO_IMPROVE: true
