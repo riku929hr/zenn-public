@@ -43,3 +43,6 @@ jobs:
           # /improve で呼び出す修正コードの "Suggestion" 時の追加プロンプト
           PR_CODE_SUGGESTIONS.EXTRA_INSTRUCTIONS: ${{ env.INSTRUCTION }}
           CONFIG.MODEL: gpt-4o-mini
+          GITHUB_ACTION.AUTO_REVIEW: true
+          GITHUB_ACTION.AUTO_DESCRIBE: true
+          GITHUB_ACTION.AUTO_IMPROVE: true
