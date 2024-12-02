@@ -3,7 +3,7 @@ title: "育休を取得するときのあれこれ"
 emoji: "🐣"
 type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["育休", "キャリア", "adventcalendar"]
-published: false
+published: true
 publication_name: "openlogi"
 ---
 
