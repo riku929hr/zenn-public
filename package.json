@@ -23,7 +23,7 @@
     "zenn-cli": "^0.3.1"
   },
   "devDependencies": {
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.0",
     "secretlint": "^11.2.5",
     "textlint": "^15.5.0",
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
