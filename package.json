@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/riku929hr/zenn-public#readme",
   "dependencies": {
-    "zenn-cli": "^0.4.2"
+    "zenn-cli": "^0.4.3"
   },
   "devDependencies": {
     "prettier": "^3.8.1",
