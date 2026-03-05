@@ -3205,10 +3205,10 @@ yallist@^4.0.0:
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-4.0.0.tgz#9bb92790d9c0effec63be73519e11a35019a3a72"
   integrity sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
 
-zenn-cli@^0.4.5:
-  version "0.4.5"
-  resolved "https://registry.yarnpkg.com/zenn-cli/-/zenn-cli-0.4.5.tgz#9eda90211c43ee5cfb62b9c0761fae3f66988f5f"
-  integrity sha512-lrG5Bb8j8jhVKRLE1T6Fe/wYV+jBDaRZFHzDatS/tcxcoV1oNaK812PeXYr2rtvH77trZaIag6fYltGXAIN0oA==
+zenn-cli@^0.4.6:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/zenn-cli/-/zenn-cli-0.4.6.tgz#1417e6aa717cdaa4cd811663bf1347faca7cf811"
+  integrity sha512-jeC65M6Xx8wVGL2E7+Siw+qlhUurg+Y7w4HwMDMzgNrbrCROs836qKE4kq77oqkUcbXrcRVbSAXnjAKVTA2oNg==
   dependencies:
     open "^10.2.0"
     package-manager-detector "^1.6.0"
