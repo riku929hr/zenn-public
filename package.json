@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "prettier": "^3.9.5",
-    "secretlint": "^13.0.2",
+    "secretlint": "^13.0.4",
     "textlint": "^15.7.1",
     "textlint-rule-preset-ja-technical-writing": "^12.0.2",
     "textlint-rule-preset-jtf-style": "^3.0.3"
