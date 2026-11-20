@@ -446,35 +446,10 @@
     "@azure/msal-common" "16.15.0"
     jsonwebtoken "^9.0.0"
 
-"@babel/helper-string-parser@^7.25.9":
-  version "7.25.9"
-  resolved "https://registry.yarnpkg.com/@babel/helper-string-parser/-/helper-string-parser-7.25.9.tgz#1aabb72ee72ed35789b4bbcad3ca2862ce614e8c"
-  integrity sha512-4A/SCr/2KLd5jrtOMFzaKjVtAei3+2r/NChoBNoZ3EyP/+GlhoaEGoWOZUmFmoITP7zOJyHIMm+DYRd8o3PvHA==
-
-"@babel/helper-validator-identifier@^7.25.9":
-  version "7.25.9"
-  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.25.9.tgz#24b64e2c3ec7cd3b3c547729b8d16871f22cbdc7"
-  integrity sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==
-
-"@babel/parser@^7.23.9":
-  version "7.26.2"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.26.2.tgz#fd7b6f487cfea09889557ef5d4eeb9ff9a5abd11"
-  integrity sha512-DWMCZH9WA4Maitz2q21SRKHo9QXZxkDsbNZoVD62gusNtNBBqDg9i7uOhASfTfIGNzW+O+r7+jAlM8dwphcJKQ==
-  dependencies:
-    "@babel/types" "^7.26.0"
-
 "@babel/parser@^7.7.5":
   version "7.23.6"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.23.6.tgz#ba1c9e512bda72a47e285ae42aff9d2a635a9e3b"
   integrity sha512-Z2uID7YJ7oNvAI20O9X0bblw7Qqs8Q2hFy0R9tAfnfLkp5MW0UH9eUvnDSnFwKZ0AvgS1ucqR4KzvVHgnke1VQ==
-
-"@babel/types@^7.26.0":
-  version "7.26.0"
-  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.26.0.tgz#deabd08d6b753bc8e0f198f8709fb575e31774ff"
-  integrity sha512-Z/yiTPj+lDVnF7lWeKCIJzaIkI0vYO87dMpZ4bg4TDrFe4XXLFWL1TbXU27gBP3QccxV9mZICCrnjnYlJjXHOA==
-  dependencies:
-    "@babel/helper-string-parser" "^7.25.9"
-    "@babel/helper-validator-identifier" "^7.25.9"
 
 "@keyv/serialize@^1.1.0":
   version "1.1.0"
@@ -4029,19 +4004,17 @@ textlint-rule-preset-ja-technical-writing@^12.0.2:
     textlint-rule-preset-jtf-style "^3.0.1"
     textlint-rule-sentence-length "^5.2.0"
 
-textlint-rule-preset-jtf-style@^3.0.1, textlint-rule-preset-jtf-style@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/textlint-rule-preset-jtf-style/-/textlint-rule-preset-jtf-style-3.0.3.tgz#1f6993818ebea31286d219e1dec0e84f83049fcb"
-  integrity sha512-NTvqjg3oMTGjSDoH6MnYu+DDWW6cEghA66Lb8N0bheTphAj99aaG10HGhwTfDbaH2P6NfPQvRP5ISxiXCT9zdg==
+textlint-rule-preset-jtf-style@^3.0.1, textlint-rule-preset-jtf-style@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-preset-jtf-style/-/textlint-rule-preset-jtf-style-3.1.0.tgz#7ce3c301432f3d850134307ba891c97213d57d0f"
+  integrity sha512-HyVbZb3fH6PzWTkUAfUS0SRfqE1n+8iiunDkHj8IE3+ji7TxajepS37aQ+UKnSGglsbQhjJMHz4HuJAMVQ/3bA==
   dependencies:
     analyze-desumasu-dearu "^2.1.2"
     japanese-numerals-to-number "^1.0.2"
     match-index "^1.0.3"
     moji "^0.5.1"
     regexp.prototype.flags "^1.5.3"
-    regx "^1.0.4"
     textlint-rule-helper "^2.3.1"
-    textlint-rule-prh "^6.0.0"
 
 textlint-rule-prh@^5.3.0:
   version "5.3.0"
@@ -4052,15 +4025,6 @@ textlint-rule-prh@^5.3.0:
     prh "^5.4.4"
     textlint-rule-helper "^2.1.1"
     untildify "^3.0.3"
-
-textlint-rule-prh@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/textlint-rule-prh/-/textlint-rule-prh-6.0.0.tgz#2b917bcb80ed3f9c981abd0dc19e461951c55934"
-  integrity sha512-byU7eUyhabX2FKx3ShOktKkmKLG5dhR0ru+PGllKgafKKWXtzOIAhAaDlqMC5qU6b3Jaz5rKQcnroGVCEjcP1Q==
-  dependencies:
-    "@babel/parser" "^7.23.9"
-    prh "^5.4.4"
-    textlint-rule-helper "^2.3.1"
 
 textlint-rule-sentence-length@^5.2.0:
   version "5.2.0"
